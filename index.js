@@ -11,7 +11,8 @@ const assignTokenIds = (dnaHashes, seed) => {
         return tokens.splice(index, 1)[0];
     };
     const dnaTokenMap = {};
-    for (const dna of dnaHashes) {
+    const sortedDnaHashes = [...dnaHashes].sort();
+    for (const dna of sortedDnaHashes) {
         dnaTokenMap[dna] = getRandomToken();
     }
     return dnaTokenMap;

@@ -9,7 +9,8 @@ export const assignTokenIds = (dnaHashes: string[], seed: string) => {
     return tokens.splice(index, 1)[0]
   }
   const dnaTokenMap: Record<string, string> = {}
-  for (const dna of dnaHashes) {
+  const sortedDnaHashes = [...dnaHashes].sort()
+  for (const dna of sortedDnaHashes) {
     dnaTokenMap[dna] = getRandomToken()
   }
   return dnaTokenMap
